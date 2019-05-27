@@ -18,9 +18,6 @@ public class SplitAndAdd {
 		}
 		for(int element : res) {
 			System.out.println(element);
-			
-			
-			
 		}
 	}
 

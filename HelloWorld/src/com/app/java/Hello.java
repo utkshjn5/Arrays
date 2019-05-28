@@ -7,7 +7,7 @@ public class Hello {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int [] array = {-11,2,-3,24,-65,-3,74};
+		int [] array = {11,2,0,24,-65,-3,74};
 		List <Integer> result = new ArrayList<>();
 		int sum=0; 
 		getIndexes(array,sum,result);
@@ -23,21 +23,11 @@ public class Hello {
 		int prevCount = 0;
 		int pos = 0;
 		for(int i=0; i<arr.length;i++) {
-			if(sum >= 0) {
 			while(prevCount > sum) {
 				prevCount = prevCount - arr[pos];
-				if(!result.isEmpty()) {
-					result.remove(0);
-				}
-				pos++;
-			}}else {
-			while(prevCount < sum) {
-			prevCount = prevCount - arr[pos];
-			if(!result.isEmpty()) {
 				result.remove(0);
+				pos++;
 			}
-			pos++;
-		}}
 			if(arr[i] == sum) {
 				if(!result.isEmpty()) {
 					result.clear();
@@ -45,12 +35,12 @@ public class Hello {
 				prevCount = arr[i];
 				result.add(i);
 				break;
-			}else if(prevCount <= sum && sum >= 0){
+			}else if(prevCount <= sum){
 				prevCount = prevCount+arr[i];
 				result.add(i);
-			}else if(prevCount > sum){
-				prevCount = prevCount+arr[i];
-				result.add(i);
+				if(prevCount == 0) {
+					break;
+				}
 			}else {
 				break;
 			}

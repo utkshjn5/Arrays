@@ -45,7 +45,7 @@ public class Hello {
 				prevCount = arr[i];
 				result.add(i);
 				break;
-			}else if(prevCount < sum && sum >= 0){
+			}else if(prevCount <= sum && sum >= 0){
 				prevCount = prevCount+arr[i];
 				result.add(i);
 			}else if(prevCount > sum){

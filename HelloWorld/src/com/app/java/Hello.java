@@ -9,7 +9,7 @@ public class Hello {
 		// TODO Auto-generated method stub
 		int [] array = {-11,2,-3,24,-65,-3,74};
 		List <Integer> result = new ArrayList<>();
-		int sum=74; 
+		int sum=0; 
 		getIndexes(array,sum,result);
 		if(result.size() > 0) {
 		for(int i=0;i<result.size();i++) {
@@ -23,11 +23,21 @@ public class Hello {
 		int prevCount = 0;
 		int pos = 0;
 		for(int i=0; i<arr.length;i++) {
+			if(sum >= 0) {
 			while(prevCount > sum) {
 				prevCount = prevCount - arr[pos];
-				result.remove(0);
+				if(!result.isEmpty()) {
+					result.remove(0);
+				}
 				pos++;
+			}}else {
+			while(prevCount < sum) {
+			prevCount = prevCount - arr[pos];
+			if(!result.isEmpty()) {
+				result.remove(0);
 			}
+			pos++;
+		}}
 			if(arr[i] == sum) {
 				if(!result.isEmpty()) {
 					result.clear();
@@ -35,7 +45,10 @@ public class Hello {
 				prevCount = arr[i];
 				result.add(i);
 				break;
-			}else if(prevCount != sum){
+			}else if(prevCount < sum && sum >= 0){
+				prevCount = prevCount+arr[i];
+				result.add(i);
+			}else if(prevCount > sum){
 				prevCount = prevCount+arr[i];
 				result.add(i);
 			}else {

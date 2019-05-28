@@ -5,7 +5,7 @@ public class MergeArrays {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int [] arr1 = {1,2,5,7};
-		int [] arr2 = {2,3,6};
+		int [] arr2 = {2,3,6,9,10};
 		int [] res = new int[arr1.length + arr2.length];
 		getMergedArray(arr1,arr2,res);
 		for(int element: res) {
